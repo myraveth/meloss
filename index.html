@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beni Affet Meleğim 🌹</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff0f5;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+      overflow-x: hidden;
+    }
+    .kalp {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: dusme 5s linear infinite;
+    }
+    .kalp::before,
+    .kalp::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+    .kalp::before {
+      top: -10px;
+      left: 0;
+    }
+    .kalp::after {
+      left: -10px;
+      top: 0;
+    }
+    @keyframes dusme {
+      0% {top: -20px; opacity: 1;}
+      100% {top: 100vh; opacity: 0;}
+    }
+    .soru {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+    .secenek {
+      display: block;
+      margin: 10px auto;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      background-color: #ff69b4;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .secenek:hover {
+      background-color: #ff1493;
+    }
+    .kutucuk {
+      animation: fadeIn 0.8s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @media (max-width: 600px) {
+      .soru { font-size: 1.2rem; }
+      .secenek { font-size: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Bakalıım ne kadar tanıyorsuun benii MELOSUUMM🌹</h1>
+  <div id="soruKutusu" class="kutucuk">
+    <button class="secenek" onclick="sonrakiSoru()">🌹</button>
+  </div>
+
+  <script>
+    const sorular = [
+      {
+        soru: "En sevdiğim tatlı hangisi?",
+        secenekler: [
+          { text: "🍫 Sufle", tepki: "Sıcak ve içi akışkan… tıpkı kalbim gibi seninle dolu 😘" },
+          { text: "🍰 Cheesecake", tepki: "Üzerine Melek yazarsak daha tatlı olur 💋" },
+          { text: "🧁 Hiçbiri... çünkü en tatlı şey sensin Melek ❤️", tepki: "Tam isabet. ME-LE-K 💖🍓" }
+        ]
+      },
+      {
+        soru: "En sevdiğim film türü?",
+        secenekler: [
+          { text: "🎬 Romantik", tepki: "Gerçek aşk filmleri MELEK’le yazılır ❤️" },
+          { text: "🤣 Komedi", tepki: "Senin kahkahan yetiyor zaten 😍" },
+          { text: "😘 Seninle izlediğim her şey", tepki: "Seninle belgesel bile izlerim 😚" }
+        ]
+      },
+      {
+        soru: "Sabah ilk yaptığım şey?",
+        secenekler: [
+          { text: "☀️ Seni düşünmek", tepki: "Gözümü açar açmaz aklıma düşüyorsun 💭" },
+          { text: "📱 Telefona bakmak", tepki: "Mesaj yoksa bile profil resmine bakarım 🌟" },
+          { text: "☕ Kahve mi? Hayır... sadece sen varsın ❤️", tepki: "Kahve bile kıskanır seni 😘" }
+        ]
+      },
+      {
+        soru: "En çok kullandığım emoji?",
+        secenekler: [
+          { text: "😂", tepki: "Seninle gülerken gözümde kalpler çıkıyor 🥹" },
+          { text: "😍", tepki: "Her Melek mesajı sonrası bu emoji fışkırıyor 😍" },
+          { text: "❤️", tepki: "Sadece sana atan kalbim bu ❤️" }
+        ]
+      },
+      {
+        soru: "Beni ilk gördüğünde ne hissettin?",
+        secenekler: [
+          { text: "💘 Kalbime bi şey saplandı", tepki: "AŞK 💘" },
+          { text: "🧠 O kim ya?", tepki: "Aşk tanrısı devreye girmiş 😏" },
+          { text: "😳 Nutkum tutuldu", tepki: "Zamanı unuttum... MELEK etkisi ✨" }
+        ]
+      },
+      {
+        soru: "En sevdiğim hayvan?",
+        secenekler: [
+          { text: "🐶 Köpek", tepki: "Sadık, sevecen… aynen ben 😄" },
+          { text: "🐱 Kedi", tepki: "Miyavv... ama Melekli kedi 😻" },
+          { text: "🕊️ Sen", tepki: "En sevdiğim varlık sensin 💕" }
+        ]
+      },
+      {
+        soru: "En sevdiğim mevsim?",
+        secenekler: [
+          { text: "❄️ Kış", tepki: "Sarılmak için bahanem oluyor 😌" },
+          { text: "🌸 Bahar", tepki: "Çiçekler açıyor ama MELEK açmış zaten 🌸" },
+          { text: "💑 Seninle geçen her mevsim", tepki: "Mevsim değil mucize 🍃❤️" }
+        ]
+      },
+      {
+        soru: "En sevdiğim şarkıcı?",
+        secenekler: [
+          { text: "💃 Tarkan", tepki: "Şımarık aşkı anlatıyor ama eksik 🤭" },
+          { text: "🎤 Sezen Aksu", tepki: "Melek varsa acı yok 🎧" },
+          { text: "🎶 Melek'in sesi", tepki: "Senin sesin nota gibi 🎵💓" }
+        ]
+      },
+      {
+        soru: "En çok söylediğim cümle?",
+        secenekler: [
+          { text: "Aşkımmm", tepki: "Günde 33 defa 😘" },
+          { text: "Ben seni çok seviyorum", tepki: "İçimden taşan şey bu 💌" },
+          { text: "Meleğim... cennetim sensin", tepki: "Cennet bana MELEK olarak indi 😇" }
+        ]
+      },
+      {
+        soru: "Benim sana en çok kızdığım şey ne?",
+        secenekler: [
+          { text: "🙃 Trip atman", tepki: "Triplerinin bile tadı var 😅" },
+          { text: "🧊 Mesajlara geç dönmen", tepki: "Saatime Melek yazıyorum 😔" },
+          { text: "😍 Çok tatlı olup kendini affettirmen", tepki: "Sinirlenemiyorum bile 😍❤️" }
+        ]
+      }
+    ];
+
+    let index = -1;
+
+    function sonrakiSoru() {
+      index++;
+      const kutu = document.getElementById("soruKutusu");
+
+      if (index < sorular.length) {
+        const s = sorular[index];
+        kutu.innerHTML = `<p class='soru'>${s.soru}</p>` + s.secenekler.map((sec, i) =>
+          `<button class='secenek' onclick='tepkiGoster(${index}, ${i})'>${sec.text}</button>`
+        ).join('');
+      } else {
+        kutu.innerHTML = `
+          <h2>🥺 Bu kadar soru sordum...
+          <br><br>Beni affeder misin Meleğim? 💖</h2>
+          <p>Her cevabın, her tebessümün içimde bir ışık gibi... <br>
+          Sana bir daha asla kıyamam. Seni çok ama çok seviyorum ❤️</p>
+          <a href="https://docs.google.com/forms" target="_blank">
+            <button class="secenek">Bana buradan bir mesaj yaz Meleğim 💌</button>
+          </a>
+        `;
+      }
+    }
+
+    function tepkiGoster(soruIndex, secenekIndex) {
+      const kutu = document.getElementById("soruKutusu");
+      const tepki = sorular[soruIndex].secenekler[secenekIndex].tepki;
+      kutu.innerHTML = `<p>${tepki}</p><br><button class='secenek' onclick='sonrakiSoru()'>Devam et ❤️</button>`;
+    }
+
+    // Kalp yağmuru efekti
+    setInterval(() => {
+      const kalp = document.createElement("div");
+      kalp.className = "kalp";
+      kalp.style.left = Math.random() * 100 + "vw";
+      kalp.style.animationDuration = 2 + Math.random() * 3 + "s";
+      document.body.appendChild(kalp);
+      setTimeout(() => kalp.remove(), 5000);
+    }, 300);
+  </script>
+</body>
+</html>
